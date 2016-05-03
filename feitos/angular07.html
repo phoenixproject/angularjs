@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="app">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    </head>
+    <body>
+        
+		<div ng-controller="CtrlApp">	
+			<!-- A função ng-change é chamada toda a vez em que o este input é alterado -->
+			<input type="text" ng-model="nome" ng-change="loggar()"/>
+			<h1>{{nome}}, {{cidade}}, {{idade * 2}}</h1>		
+		</div>
+		
+
+		<script>
+			var myApp = angular.module('app', []);
+		
+			var CtrlApp = function($scope) {
+				$scope.nome = "Leandro";
+				$scope.cidade = "Vitoria";
+				$scope.idade = 18.5;
+				
+				$scope.loggar = function(){
+					alert($scope.nome);
+				}
+				
+			};
+			
+			myApp.controller('CtrlApp',CtrlApp);
+			
+		</script>
+		
+    </body>
+</html>
